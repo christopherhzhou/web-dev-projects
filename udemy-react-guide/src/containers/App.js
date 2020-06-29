@@ -4,6 +4,7 @@ import classes from "./App.css";
 import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClasss";
 import Aux from "../hoc/Aux";
+import AuthContext from "../context/auth-context";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class App extends Component {
     console.log("[App.js] constructor");
     this.state = {
       persons: [
-        { id: "0000", name: "Chris", age: "19" },
+        { id: "0000", name: "Chris", age: 19 },
         { id: "0001", name: "Jeff", age: 21 },
         { id: "0002", name: "Emily", age: 10 },
       ],
@@ -107,15 +108,22 @@ class App extends Component {
         >
           Remove Cockpit
         </button>
-        {this.state.showCockpit ? (
-          <Cockpit
-            showPersons={this.state.showPersons}
-            personsLength={this.state.persons.length}
-            clicked={this.togglePersonsHandler}
-            login={this.loginHandler}
-          />
-        ) : null}
-        {persons}
+        <AuthContext.Provider
+          value={{
+            authenticated: this.state.authenticated,
+            login: this.loginHandler,
+          }}
+        >
+          {this.state.showCockpit ? (
+            <Cockpit
+              showPersons={this.state.showPersons}
+              personsLength={this.state.persons.length}
+              clicked={this.togglePersonsHandler}
+              login={this.loginHandler}
+            />
+          ) : null}
+          {persons}
+        </AuthContext.Provider>
       </Aux>
     );
   }
