@@ -10,3 +10,4 @@ code-along projects; everything else is my own work.
 ## Code-along projects:
 
 - udemy-react-guide
+- burger-builder-app
