@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
-import TipTax from './containers/TipAndTaxCalculator';
+import './App.scss';
+//import TipTax from './containers/TipAndTaxCalculator';
 import TipTaxForm from './containers/TipTaxForm/TipTaxForm';
 
 class App extends Component {
@@ -8,12 +8,12 @@ class App extends Component {
 		subtotal: 0,
 		state: null,
 		jurisdiction: null,
-		percentTip: 0
+		percentTip: 0,
 	};
 
 	render() {
 		return (
-			<div className='App'>
+			<div className="App">
 				<TipTaxForm />
 			</div>
 		);

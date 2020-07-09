@@ -16,7 +16,7 @@ const tipAndTaxCalculator = (props) => {
 const getStateAndJurisdictionTaxRate = (state, jurisdiction) => {
 	const taxRates = {
 		stateTaxRate: 0,
-		jurisdictionTaxRate: null
+		jurisdictionTaxRate: null,
 	};
 
 	// checks if jurisdiction is used

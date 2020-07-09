@@ -1,20 +1,25 @@
-import React, { useState } from 'react';
-//import STATE_TAXES from '../../constants/StateTaxes';
+import React from 'react';
+//{ useState }
+
+import JurisdictionInput from '../../components/TipTaxForm/JurisdictionInput';
+import StateInput from '../../components/TipTaxForm/StateInput';
+import SubtotalInput from '../../components/TipTaxForm/SubtotalInput/SubtotalInput';
+import TipInput from '../../components/TipTaxForm/TipInput';
+
+import './TipTaxForm.scss';
 
 const TipTaxForm = (props) => {
-	const [value, setValue] = useState(0);
+	//const [value, setValue] = useState(0);
+
 	return (
 		<div>
-			<form>
-				<label>Subtotal </label>
-				<input
-					type='number'
-					name='subtotal'
-					onChange={(event) => setValue(event.target.value)}
-					value={value}
-				/>
-			</form>
-			<p>subtotal: {value}</p>
+			<SubtotalInput />
+			<StateInput />
+
+			{/*conditionally render jurisdiction dropdown here:*/}
+			<JurisdictionInput />
+
+			<TipInput />
 		</div>
 	);
 };
