@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import NumberFormat from 'react-number-format';
 import TextField from '@material-ui/core/TextField';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import InputAdornment from '@material-ui/core/InputAdornment';
 
+import './SubtotalInput.scss';
+
+// sets the currency format
 const NumberFormatCustom = (props) => {
 	const { inputRef, onChange, ...other } = props;
 
@@ -15,35 +17,34 @@ const NumberFormatCustom = (props) => {
 				onChange({
 					target: {
 						name: props.name,
-						value: values.value,
-					},
+						value: values.value
+					}
 				});
 			}}
 			allowNegative={false}
 			decimalScale={2}
 			isNumericString
-			prefix="$"
 		/>
 	);
 };
 
 const SubtotalInput = (props) => {
-	const [values, setValues] = React.useState({
-		numberformat: '',
-	});
+	const [amount, setAmount] = useState();
+
 	const handleChange = (event) => {
-		setValues({
-			...values,
-			[event.target.name]: event.target.value,
-		});
+		setAmount(event.target.value);
 	};
+
 	return (
 		<TextField
-			value={values.amount}
+			label='Subtotal'
+			className='subtotal'
+			value={amount}
+			variant='outlined'
+			size='small'
 			onChange={handleChange}
-			startAdornment={<InputAdornment position="start">$</InputAdornment>}
 			InputProps={{
-				inputComponent: NumberFormatCustom,
+				inputComponent: NumberFormatCustom
 			}}
 		/>
 	);

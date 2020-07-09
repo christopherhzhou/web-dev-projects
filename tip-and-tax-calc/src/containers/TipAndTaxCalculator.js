@@ -1,7 +1,7 @@
 import React from 'react';
 import STATE_TAXES from '../constants/StateTaxes';
 
-const tipAndTaxCalculator = (props) => {
+const TipAndTaxCalculator = (props) => {
 	const testTaxes = getStateAndJurisdictionTaxRate('New York', 'New York City');
 
 	return (
@@ -16,7 +16,7 @@ const tipAndTaxCalculator = (props) => {
 const getStateAndJurisdictionTaxRate = (state, jurisdiction) => {
 	const taxRates = {
 		stateTaxRate: 0,
-		jurisdictionTaxRate: null,
+		jurisdictionTaxRate: null
 	};
 
 	// checks if jurisdiction is used
@@ -30,4 +30,4 @@ const getStateAndJurisdictionTaxRate = (state, jurisdiction) => {
 	return taxRates;
 };
 
-export default tipAndTaxCalculator;
+export default TipAndTaxCalculator;
