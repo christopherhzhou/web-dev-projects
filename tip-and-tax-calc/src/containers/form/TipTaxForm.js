@@ -2,14 +2,14 @@ import React from 'react';
 
 import Grid from '@material-ui/core/Grid';
 
-import StateInput from '../../components/TipTaxForm/StateInput/StateInput';
+import StateAndJurisdictionInput from '../../containers/form/StateAndJurisdictionInput';
 import SubtotalInput from '../../containers/form/SubtotalInput';
 import TipInput from '../../containers/form/TipInput';
 
 const TipTaxForm = () => {
 	return (
-		<div className='tipTaxForm'>
-			<Grid container spacing={2} direction='column'>
+		<div className="tipTaxForm">
+			<Grid container spacing={3} direction="column">
 				<Grid item>
 					<SubtotalInput />
 				</Grid>
@@ -17,7 +17,7 @@ const TipTaxForm = () => {
 					<TipInput />
 				</Grid>
 				<Grid item>
-					<StateInput />
+					<StateAndJurisdictionInput />
 				</Grid>
 			</Grid>
 		</div>

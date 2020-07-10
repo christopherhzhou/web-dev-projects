@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as formActions from '../../redux/actions/formActions';
-import TipInputComponent from '../../components/TipTaxForm/TipInput';
+import TipInputComponent from '../../components/TipTaxForm/TipInput/TipInput';
 
 const TipInput = (props) => {
 	const handleTipChange = (event) => {
@@ -14,7 +14,7 @@ const TipInput = (props) => {
 
 function mapStateToProps(state) {
 	return {
-		tip: state.tip
+		tip: state.tip,
 	};
 }
 
