@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 import './SubtotalInput.scss';
 
 // sets the currency format
-const NumberFormatCustom = (props) => {
+export const NumberFormatCustom = (props) => {
 	const { inputRef, onChange, ...other } = props;
 
 	return (
@@ -17,8 +17,8 @@ const NumberFormatCustom = (props) => {
 				onChange({
 					target: {
 						name: props.name,
-						value: values.value
-					}
+						value: values.value,
+					},
 				});
 			}}
 			allowNegative={false}
@@ -37,14 +37,14 @@ const SubtotalInput = (props) => {
 
 	return (
 		<TextField
-			label='Subtotal'
-			className='subtotal'
+			label="Subtotal"
+			className="subtotal"
 			value={amount}
-			variant='outlined'
-			size='small'
+			variant="outlined"
+			size="small"
 			onChange={handleChange}
 			InputProps={{
-				inputComponent: NumberFormatCustom
+				inputComponent: NumberFormatCustom,
 			}}
 		/>
 	);
