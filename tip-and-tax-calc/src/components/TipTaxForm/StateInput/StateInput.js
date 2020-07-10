@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -16,9 +16,9 @@ const StateInput = (props) => {
 	));
 
 	return (
-		<FormControl className="stateInput" variant="outlined" size="small">
+		<FormControl className='stateInput' variant='outlined' size='small'>
 			<InputLabel>State</InputLabel>
-			<Select value={props.value} onChange={props.onChange} label="State">
+			<Select value={props.value} onChange={props.onChange} label='State'>
 				{stateList}
 			</Select>
 		</FormControl>
