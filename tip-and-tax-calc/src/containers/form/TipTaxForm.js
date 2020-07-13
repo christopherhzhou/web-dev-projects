@@ -8,8 +8,8 @@ import TipInput from '../../containers/form/TipInput';
 
 const TipTaxForm = () => {
 	return (
-		<div className="tipTaxForm">
-			<Grid container spacing={3} direction="column">
+		<div className='tipTaxForm'>
+			<Grid container spacing={2} direction='column'>
 				<Grid item>
 					<SubtotalInput />
 				</Grid>

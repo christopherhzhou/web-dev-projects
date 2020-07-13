@@ -10,23 +10,34 @@ const MockReceipt = (props) => {
 		props.jurisdiction
 	);
 
-	const subtotal = props.subtotal ? parseInt(props.subtotal) : 0;
+	const ZERO = 0;
+	const ZERO_MONEY = ZERO.toFixed(2);
+
+	const subtotal = props.subtotal
+		? parseFloat(props.subtotal).toFixed(2)
+		: ZERO_MONEY;
 
 	const tipValue =
 		props.tip && props.subtotal
-			? Math.round(props.tip * props.subtotal) * 0.01
-			: 0;
+			? (props.tip * props.subtotal * 0.01).toFixed(2)
+			: ZERO_MONEY;
 
 	const stateTax =
 		taxRates.stateTaxRate && props.subtotal
-			? Math.round(props.subtotal * taxRates.stateTaxRate) * 0.01
-			: 0;
+			? (props.subtotal * taxRates.stateTaxRate * 0.01).toFixed(2)
+			: ZERO_MONEY;
+
 	const jurisdictionTax =
 		taxRates.jurisdictionTaxRate && props.subtotal
-			? Math.round(props.subtotal * taxRates.jurisdictionTaxRate) * 0.01
-			: 0;
+			? (props.subtotal * taxRates.jurisdictionTaxRate * 0.01).toFixed(2)
+			: ZERO_MONEY;
 
-	const total = subtotal + tipValue + stateTax + jurisdictionTax;
+	const total = (
+		parseFloat(subtotal) +
+		parseFloat(tipValue) +
+		parseFloat(stateTax) +
+		parseFloat(jurisdictionTax)
+	).toFixed(2);
 
 	return (
 		<MockReceiptComponent
@@ -47,7 +58,7 @@ const getStateAndJurisdictionTaxRate = (
 ) => {
 	const taxRates = {
 		stateTaxRate: 0,
-		jurisdictionTaxRate: null,
+		jurisdictionTaxRate: null
 	};
 
 	if (hasJurisdictionTax) {
@@ -66,7 +77,7 @@ function mapStateToProps(state) {
 		tip: state.tip,
 		userState: state.userState,
 		jurisdiction: state.jurisdiction,
-		hasJurisdictionTax: state.requireJurisdiction,
+		hasJurisdictionTax: state.requireJurisdiction
 	};
 }
 

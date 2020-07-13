@@ -12,7 +12,6 @@ const StateAndJurisdictionInput = (props) => {
 		props.dispatch(formActions.editState(newState));
 		props.dispatch(formActions.editJurisdiction(''));
 		if (hasJurisdictionTax(newState) !== props.requireJurisdiction) {
-			console.log(newState, hasJurisdictionTax(newState));
 			props.dispatch(
 				formActions.editHasJurisdictionTax(hasJurisdictionTax(newState))
 			);
@@ -63,7 +62,7 @@ function mapStateToProps(state) {
 	return {
 		userState: state.userState,
 		requireJurisdiction: state.requireJurisdiction,
-		jurisdiction: state.jurisdiction,
+		jurisdiction: state.jurisdiction
 	};
 }
 
