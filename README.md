@@ -1,8 +1,6 @@
 # web-dev-projects
 
-**NOTE:** The tip-tax project has been duplicated into another repository so it could be easily deployed to AWS Amplify.
-
-This repo contains all the projects I have worked on related to web development.
+This repo other projects I have worked on related to web development.
 
 Most of the "projects" here are simply the result of following along with various
 online courses, including Maximilian Schwarzmüller's React guide on Udemy and
