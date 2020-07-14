@@ -1,13 +1,18 @@
+$tiptax-side-padding: 30px;
+$title-and-bot-padding: 45px;
+
 .tiptax {
 	border: 1px solid rgb(195, 195, 195);
 	border-radius: 5px;
 	margin-top: 100px;
-	padding-bottom: 50px;
+	padding-bottom: $title-and-bot-padding;
+	padding-left: $tiptax-side-padding;
+	padding-right: $tiptax-side-padding;
 }
 
-.title {
+h1 {
 	font-family: 'Roboto', sans-serif;
-	padding-top: 20px;
-	padding-left: 50px;
-	padding-bottom: 10px;
+	margin: 0px;
+	padding-top: $title-and-bot-padding;
+	padding-bottom: 30px;
 }
