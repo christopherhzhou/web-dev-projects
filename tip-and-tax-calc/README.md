@@ -1,7 +1,7 @@
 # Tip & tax calculator
 
 This project was built as a 'practice run' for React and Redux in a single-page
-application. This project also uses the Material-UI React component for inputs
+application. This project uses the Material-UI React component for inputs
 and layout elements.
 
 ## Why so few states?
