@@ -1,28 +1,63 @@
 import React from 'react';
 import Paper from '@material-ui/core/Paper';
+import EmptyWrapper from '../../util/EmptyWrapper';
+
+import './MockReceipt.scss';
 
 const mockReceipt = (props) => {
-	//example receipt: https://i.pinimg.com/originals/72/48/a2/7248a2bd5714d39e515eb4539b01e5b3.png
+	let taxes, stateTaxPercentage;
 
-	let taxes;
+	if (props.stateTaxRate) {
+		stateTaxPercentage = <EmptyWrapper> ({props.stateTaxRate}%)</EmptyWrapper>;
+	}
 
 	if (props.hasJurisdictionTax) {
-		taxes = (
-			<div>
-				<p>State tax: {props.stateTax}</p>
-				<p>Jurisdiction tax: {props.jurisdictionTax}</p>
-			</div>
-		);
+		const jurisdictionTaxPercentage = props.jurisdictionTaxRate ? (
+			<EmptyWrapper> ({props.jurisdictionTaxRate}%)</EmptyWrapper>
+		) : null;
+
+		taxes = [
+			<tr>
+				<td>State Tax{stateTaxPercentage}</td>
+				<td className='price'>${props.stateTax}</td>
+			</tr>,
+			<tr>
+				<td>Jurisdiction Tax{jurisdictionTaxPercentage}</td>
+				<td className='price'>${props.jurisdictionTax}</td>
+			</tr>
+		];
 	} else {
-		taxes = <p>Tax: {props.stateTax}</p>;
+		taxes = (
+			<tr>
+				<td>Sales Tax{stateTaxPercentage}</td>
+				<td className='price'>${props.stateTax}</td>
+			</tr>
+		);
 	}
 
 	return (
-		<Paper elevation={3} square>
-			<p>Subtotal: {props.subtotal}</p>
-			<p>Tip: {props.tip}</p>
-			{taxes}
-			<p>Total: {props.total}</p>
+		<Paper elevation={3} square className='mockReceiptComponent'>
+			<table>
+				<tr>
+					<td>Sub Total</td>
+					<td className='price'>${props.subtotal}</td>
+				</tr>
+				{taxes}
+			</table>
+			-----------------------------------
+			<table>
+				<tr>
+					<td>Tip</td>
+					<td className='price'>${props.tip}</td>
+				</tr>
+			</table>
+			===================================
+			<table>
+				<tr>
+					<th className='total'>Grand Total</th>
+					<th className='totalPrice'>${props.total}</th>
+				</tr>
+			</table>
 		</Paper>
 	);
 };

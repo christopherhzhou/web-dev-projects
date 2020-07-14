@@ -1,4 +1,4 @@
-$tiptax-side-padding: 30px;
+$tiptax-side-padding: 40px;
 $title-and-bot-padding: 45px;
 
 .tiptax {
@@ -14,5 +14,24 @@ h1 {
 	font-family: 'Roboto', sans-serif;
 	margin: 0px;
 	padding-top: $title-and-bot-padding;
-	padding-bottom: 30px;
+	padding-bottom: 40px;
+}
+
+.mockReceipt {
+	padding-left: 40px;
+}
+
+@font-face {
+	font-family: 'ReceiptFont';
+	src: url('../../fonts/Merchant-Copy.ttf');
+}
+
+@font-face {
+	font-family: 'ReceiptFontDouble';
+	src: url('../../fonts/Merchant-Copy-Doublesize.ttf');
+}
+
+@font-face {
+	font-family: 'ReceiptFontWide';
+	src: url('../../fonts/Merchant-Copy-Wide.ttf');
 }

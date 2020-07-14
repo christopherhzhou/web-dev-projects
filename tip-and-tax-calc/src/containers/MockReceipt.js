@@ -45,7 +45,9 @@ const MockReceipt = (props) => {
 			tip={tipValue}
 			hasJurisdictionTax={props.hasJurisdictionTax}
 			stateTax={stateTax}
+			stateTaxRate={taxRates.stateTaxRate}
 			jurisdictionTax={jurisdictionTax}
+			jurisdictionTaxRate={taxRates.jurisdictionTaxRate}
 			total={total}
 		/>
 	);

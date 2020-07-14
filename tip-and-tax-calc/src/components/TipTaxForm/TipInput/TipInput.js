@@ -11,14 +11,14 @@ const TipInput = (props) => {
 		<TextField
 			label='Tip'
 			className='tipInput'
-			value={props.value}
 			variant='outlined'
 			size='small'
+			value={props.value}
 			onChange={props.onChange}
 			InputProps={{
+				endAdornment: <InputAdornment position='end'>%</InputAdornment>,
 				inputComponent: NumberFormatCustom
 			}}
-			endAdornment={<InputAdornment position='end'>Kg</InputAdornment>}
 		/>
 	);
 };
